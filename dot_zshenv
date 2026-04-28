@@ -1,0 +1,2 @@
+export EDITOR="emacsclient -t --alternate-editor=emacs"
+export VISUAL="emacsclient -nw --alternate-editor=emacs"
