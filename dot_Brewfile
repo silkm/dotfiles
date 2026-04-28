@@ -1,0 +1,29 @@
+# --- Core ---
+brew "chezmoi"
+brew "git"
+brew "git-delta"        # pager for git diffs
+cask "1password"
+brew "1password-cli"
+
+# --- Shell ---
+brew "direnv"
+brew "zsh-completions"
+
+# --- CLI tools ---
+brew "ripgrep"
+brew "fd"
+brew "fzf"
+brew "bat"
+brew "eza"
+brew "jq"
+
+# --- Python ---
+brew "pyenv"
+brew "uv"
+
+# --- Terminal & window management ---
+cask "ghostty"
+cask "aerospace"
+
+# --- Fonts (for terminal / p10k) ---
+cask "font-meslo-lg-nerd-font"

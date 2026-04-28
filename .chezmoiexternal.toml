@@ -1,0 +1,5 @@
+# Doom Emacs config — https://github.com/silkm/doom-config
+[".doom.d"]
+  type          = "git-repo"
+  url           = "https://github.com/silkm/doom-config.git"
+  refreshPeriod = "168h"
