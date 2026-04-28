@@ -6,6 +6,7 @@ cask "1password"
 brew "1password-cli"
 
 # --- Shell ---
+brew "powerlevel10k"
 brew "direnv"
 brew "zsh-completions"
 
