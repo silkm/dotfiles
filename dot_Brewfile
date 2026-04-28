@@ -30,11 +30,15 @@ brew "uv"
 # --- R ---
 brew "r"
 
+# --- Apps ---
+cask "spotify"
+
 # --- Terminal & window management ---
 cask "karabiner-elements"
-
 cask "ghostty"
 cask "aerospace"
+tap "FelixKratz/formulae"
+brew "sketchybar"
 
 # --- Fonts (for terminal / p10k) ---
 cask "font-meslo-lg-nerd-font"
