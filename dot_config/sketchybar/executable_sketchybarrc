@@ -1,0 +1,41 @@
+#!/bin/bash
+
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+
+# Bar appearance
+sketchybar --bar \
+  height=32 \
+  position=top \
+  sticky=on \
+  padding_left=10 \
+  padding_right=10 \
+  color=0xcc000000
+
+# Defaults
+sketchybar --default \
+  icon.font="MesloLGS NF:Regular:13.0" \
+  label.font="MesloLGS NF:Regular:13.0" \
+  icon.color=0xffffffff \
+  label.color=0xffffffff \
+  padding_left=4 \
+  padding_right=4
+
+# Aerospace workspaces (left)
+sketchybar --add event aerospace_workspace_change
+
+for sid in $(aerospace list-workspaces --all); do
+  sketchybar --add item "space.$sid" left \
+    --subscribe "space.$sid" aerospace_workspace_change \
+    --set "space.$sid" \
+      label="$sid" \
+      click_script="aerospace workspace $sid" \
+      script="$PLUGIN_DIR/aerospace.sh $sid"
+done
+
+# Clock (right)
+sketchybar --add item clock right \
+  --set clock \
+    update_freq=10 \
+    script="$PLUGIN_DIR/clock.sh"
+
+sketchybar --update

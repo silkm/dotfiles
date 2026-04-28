@@ -1,0 +1,334 @@
+{
+  "BTTPresetCreatorNotes" : "",
+  "BTTPresetInfoURL" : "",
+  "BTTPresetName" : "Default",
+  "BTTPresetColor" : "216.750000, 114.227250, 30.345000, 255.000000",
+  "BTTPresetUUID" : "3D7364D8-8093-4EC4-A370-3EE386B18EAD",
+  "BTTPresetContent" : [
+    {
+      "BTTAppBundleIdentifier" : "BT.G",
+      "BTTAppName" : "Global",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTAppSpecificSettings" : {
+        "BTTDisableGlobalTriggers" : false
+      },
+      "BTTTriggers" : [
+        {
+          "BTTLastUpdatedAt" : 1752115415.6974878,
+          "BTTTriggerType" : 183,
+          "BTTTriggerTypeDescriptionReadOnly" : "Corner Click Top Right",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "5959C698-99A7-4683-98B4-B991473FF679",
+          "BTTOrder" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1752558367.649493,
+              "BTTTriggerParentUUID" : "5959C698-99A7-4683-98B4-B991473FF679",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+              "BTTUUID" : "91660628-6A1A-4F1A-BBA1-DEF8B29FDC5C",
+              "BTTPredefinedActionType" : 49,
+              "BTTPredefinedActionName" : "Launch Application  or  Open File  or  Start Apple Script …",
+              "BTTLaunchPath" : "/Applications/Emacs.app",
+              "BTTOrder" : 0
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1775086063.2829981,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "158E65D4-BF93-44CB-B094-D4D720AAC38B",
+          "BTTShortcutKeyboardType" : 0,
+          "BTTTriggerOnDown" : 1,
+          "BTTShortcutKeyCode" : -1,
+          "BTTOrder" : 0,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1775086008.9205551,
+              "BTTTriggerParentUUID" : "158E65D4-BF93-44CB-B094-D4D720AAC38B",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "9A60A58B-E2C9-4F4E-90A6-78753BBF5FF0",
+              "BTTShortcutKeyboardType" : 0,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 0,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1775086068.5696049,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "49E6CF04-B075-4EA7-89A8-E0D3185E7CFA",
+          "BTTAdditionalConfiguration" : "1966123",
+          "BTTShortcutKeyboardType" : 1556,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "y",
+          "BTTShortcutKeyCode" : 16,
+          "BTTShortcutAdvancedModifierKeys" : "1966123",
+          "BTTShortcutModifierKeys" : 1966080,
+          "BTTOrder" : 4,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1770775061.1732221,
+              "BTTTriggerParentUUID" : "49E6CF04-B075-4EA7-89A8-E0D3185E7CFA",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "972161FE-630F-4B43-9E19-C69657EF8949",
+              "BTTPredefinedActionType" : 195,
+              "BTTPredefinedActionName" : "Run Apple Script (async in background)",
+              "BTTAdditionalActionData" : {
+                "BTTScriptType" : 0,
+                "BTTAppleScriptString" : "set meetFound to false\n\n-- ---------------------------------------------------------\n-- PART 1: CHECK GOOGLE CHROME (Meet Camera Toggle)\n-- ---------------------------------------------------------\ntry\n\ttell application \"Google Chrome\"\n\t\t-- Loop through every tab in every Chrome window\n\t\trepeat with w in windows\n\t\t\trepeat with t in tabs of w\n\t\t\t\tif URL of t starts with \"https://meet.google.com\" then\n\t\t\t\t\t\n\t\t\t\t\t-- JAVASCRIPT: Finds the button with \"camera\" in the label and clicks it\n\t\t\t\t\t-- This allows it to work in the background!\n\t\t\t\t\texecute t javascript \"document.querySelectorAll('button[aria-label*=\\\"camera\\\"]').forEach(b => b.click())\"\n\t\t\t\t\t\n\t\t\t\t\tset meetFound to true\n\t\t\t\t\texit repeat\n\t\t\t\tend if\n\t\t\tend repeat\n\t\t\tif meetFound then exit repeat\n\t\tend repeat\n\tend tell\non error\n\t-- If Chrome isn't open, ignore and move to Gather check\n\tset meetFound to false\nend try\n\n-- ---------------------------------------------------------\n-- PART 2: CHECK GATHER OR FALLBACK\n-- ---------------------------------------------------------\nif meetFound is false then\n\ttell application \"System Events\"\n\t\tset runningProcesses to name of every application process\n\t\t\n\t\t-- CHECK FOR GATHER\n\t\tif \"Gather\" is in runningProcesses then\n\t\t\t\n\t\t\t-- 1. Remember where you are now\n\t\t\tset currentAppProcess to first application process whose frontmost is true\n\t\t\tset currentAppName to name of currentAppProcess\n\t\t\t\n\t\t\t-- 2. Switch to Gather\n\t\t\ttell process \"Gather\"\n\t\t\t\tset frontmost to true\n\t\t\tend tell\n\t\t\t\n\t\t\t-- 3. Wait for focus\n\t\t\tdelay 0.1\n\t\t\t\n\t\t\t-- 4. Send Camera Command (Cmd + Shift + V)\n\t\t\tkeystroke \"v\" using {command down, shift down}\n\t\t\t\n\t\t\t-- 5. Switch back to your original app\n\t\t\ttell process currentAppName\n\t\t\t\tset frontmost to true\n\t\t\tend tell\n\t\t\t\n\t\t-- FALLBACK (Neither Meet nor Gather found)\n\t\telse\n\t\t\t-- Just send Cmd + Shift + V to the current app\n\t\t\tkeystroke \"v\" using {command down, shift down}\n\t\tend if\n\tend tell\nend if",
+                "BTTAppleScriptUsePath" : false,
+                "BTTAppleScriptRunInBackground" : true,
+                "SelectedAction" : 195,
+                "BTTScriptLocation" : 0
+              },
+              "BTTInlineAppleScript" : "set meetFound to false\n\n-- ---------------------------------------------------------\n-- PART 1: CHECK GOOGLE CHROME (Meet Camera Toggle)\n-- ---------------------------------------------------------\ntry\n\ttell application \"Google Chrome\"\n\t\t-- Loop through every tab in every Chrome window\n\t\trepeat with w in windows\n\t\t\trepeat with t in tabs of w\n\t\t\t\tif URL of t starts with \"https://meet.google.com\" then\n\t\t\t\t\t\n\t\t\t\t\t-- JAVASCRIPT: Finds the button with \"camera\" in the label and clicks it\n\t\t\t\t\t-- This allows it to work in the background!\n\t\t\t\t\texecute t javascript \"document.querySelectorAll('button[aria-label*=\\\"camera\\\"]').forEach(b => b.click())\"\n\t\t\t\t\t\n\t\t\t\t\tset meetFound to true\n\t\t\t\t\texit repeat\n\t\t\t\tend if\n\t\t\tend repeat\n\t\t\tif meetFound then exit repeat\n\t\tend repeat\n\tend tell\non error\n\t-- If Chrome isn't open, ignore and move to Gather check\n\tset meetFound to false\nend try\n\n-- ---------------------------------------------------------\n-- PART 2: CHECK GATHER OR FALLBACK\n-- ---------------------------------------------------------\nif meetFound is false then\n\ttell application \"System Events\"\n\t\tset runningProcesses to name of every application process\n\t\t\n\t\t-- CHECK FOR GATHER\n\t\tif \"Gather\" is in runningProcesses then\n\t\t\t\n\t\t\t-- 1. Remember where you are now\n\t\t\tset currentAppProcess to first application process whose frontmost is true\n\t\t\tset currentAppName to name of currentAppProcess\n\t\t\t\n\t\t\t-- 2. Switch to Gather\n\t\t\ttell process \"Gather\"\n\t\t\t\tset frontmost to true\n\t\t\tend tell\n\t\t\t\n\t\t\t-- 3. Wait for focus\n\t\t\tdelay 0.1\n\t\t\t\n\t\t\t-- 4. Send Camera Command (Cmd + Shift + V)\n\t\t\tkeystroke \"v\" using {command down, shift down}\n\t\t\t\n\t\t\t-- 5. Switch back to your original app\n\t\t\ttell process currentAppName\n\t\t\t\tset frontmost to true\n\t\t\tend tell\n\t\t\t\n\t\t-- FALLBACK (Neither Meet nor Gather found)\n\t\telse\n\t\t\t-- Just send Cmd + Shift + V to the current app\n\t\t\tkeystroke \"v\" using {command down, shift down}\n\t\tend if\n\tend tell\nend if",
+              "BTTShortcutKeyboardType" : 0,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 0,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1775086063.278945,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "CFDFB9F3-22AC-4AD2-B447-2967EFC4AEBE",
+          "BTTShortcutKeyboardType" : 0,
+          "BTTTriggerOnDown" : 1,
+          "BTTShortcutKeyCode" : -1,
+          "BTTOrder" : 3,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1775086063.2790461,
+              "BTTTriggerParentUUID" : "CFDFB9F3-22AC-4AD2-B447-2967EFC4AEBE",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "CBE406BE-3FC2-4389-A68A-24036DDDF99C",
+              "BTTShortcutKeyboardType" : 0,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 0,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1775086063.283015,
+          "BTTTriggerType" : 0,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTUUID" : "2AEBDF0F-5998-4108-BCF1-2B1E56E8E304",
+          "BTTAdditionalConfiguration" : "1966123",
+          "BTTShortcutKeyboardType" : 1556,
+          "BTTTriggerOnDown" : 1,
+          "BTTLayoutIndependentChar" : "j",
+          "BTTShortcutKeyCode" : 38,
+          "BTTShortcutAdvancedModifierKeys" : "1966123",
+          "BTTShortcutModifierKeys" : 1966080,
+          "BTTOrder" : 1,
+          "BTTAutoAdaptToKeyboardLayout" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1771280981.486517,
+              "BTTTriggerParentUUID" : "2AEBDF0F-5998-4108-BCF1-2B1E56E8E304",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+              "BTTUUID" : "6633B454-9D41-4973-837F-A94DF700BD8A",
+              "BTTPredefinedActionType" : 195,
+              "BTTPredefinedActionName" : "Run Apple Script (async in background)",
+              "BTTAdditionalActionData" : {
+                "BTTAppleScriptRunInBackground" : true,
+                "BTTAIScriptType" : 3,
+                "BTTScriptType" : 0,
+                "BTTAppleScriptString" : "set meetFound to false\n\n-- ---------------------------------------------------------\n-- PART 1: CHECK GOOGLE CHROME (works for Tabs & PWA)\n-- ---------------------------------------------------------\ntry\n\ttell application \"Google Chrome\"\n\t\t-- Loop through every tab in every Chrome window\n\t\trepeat with w in windows\n\t\t\trepeat with t in tabs of w\n\t\t\t\tif URL of t starts with \"https://meet.google.com\" then\n\t\t\t\t\t\n\t\t\t\t\t-- UPDATED JAVASCRIPT:\n\t\t\t\t\t-- 1. Uses 'querySelector' to find only the FIRST match (the main control bar).\n\t\t\t\t\t-- 2. Checks that the label starts with \"Turn\" (e.g., \"Turn off microphone\")\n\t\t\t\t\t--    to avoid clicking \"Microphone settings\" or other participants' mute buttons.\n\t\t\t\t\texecute t javascript \"var btn = document.querySelector('button[aria-label^=\\\"Turn\\\"][aria-label*=\\\"microphone\\\"]'); if (btn) { btn.click(); }\"\n\t\t\t\t\t\n\t\t\t\t\tset meetFound to true\n\t\t\t\t\texit repeat\n\t\t\t\tend if\n\t\t\tend repeat\n\t\t\tif meetFound then exit repeat\n\t\tend repeat\n\tend tell\non error\n\t-- If Chrome isn't open, just ignore and move to Gather check\n\tset meetFound to false\nend try\n\n-- ---------------------------------------------------------\n-- PART 2: CHECK GATHER OR FALLBACK\n-- ---------------------------------------------------------\nif meetFound is false then\n\ttell application \"System Events\"\n\t\tset runningProcesses to name of every application process\n\t\t\n\t\t-- CHECK FOR GATHER\n\t\tif \"Gather\" is in runningProcesses then\n\t\t\t\n\t\t\t-- 1. Remember where you are now\n\t\t\tset currentAppProcess to first application process whose frontmost is true\n\t\t\tset currentAppName to name of currentAppProcess\n\t\t\t\n\t\t\t-- 2. Switch to Gather\n\t\t\ttell process \"Gather\"\n\t\t\t\tset frontmost to true\n\t\t\tend tell\n\t\t\t\n\t\t\t-- 3. Wait for focus (crucial for keystrokes)\n\t\t\tdelay 0.1\n\t\t\t\n\t\t\t-- 4. Send Mute Command (Cmd + Shift + A)\n\t\t\tkeystroke \"a\" using {command down, shift down}\n\t\t\t\n\t\t\t-- 5. Switch back to your original app\n\t\t\ttell process currentAppName\n\t\t\t\tset frontmost to true\n\t\t\tend tell\n\t\t\t\n\t\t-- FALLBACK (Neither Meet nor Gather found)\n\t\telse\n\t\t\tkeystroke \"a\" using {command down, shift down}\n\t\tend if\n\tend tell\nend if",
+                "SelectedAction" : 195,
+                "BTTAppleScriptUsePath" : false,
+                "BTTScriptLocation" : 0
+              },
+              "BTTInlineAppleScript" : "set meetFound to false\n\n-- ---------------------------------------------------------\n-- PART 1: CHECK GOOGLE CHROME (works for Tabs & PWA)\n-- ---------------------------------------------------------\ntry\n\ttell application \"Google Chrome\"\n\t\t-- Loop through every tab in every Chrome window\n\t\trepeat with w in windows\n\t\t\trepeat with t in tabs of w\n\t\t\t\tif URL of t starts with \"https://meet.google.com\" then\n\t\t\t\t\t\n\t\t\t\t\t-- UPDATED JAVASCRIPT:\n\t\t\t\t\t-- 1. Uses 'querySelector' to find only the FIRST match (the main control bar).\n\t\t\t\t\t-- 2. Checks that the label starts with \"Turn\" (e.g., \"Turn off microphone\")\n\t\t\t\t\t--    to avoid clicking \"Microphone settings\" or other participants' mute buttons.\n\t\t\t\t\texecute t javascript \"var btn = document.querySelector('button[aria-label^=\\\"Turn\\\"][aria-label*=\\\"microphone\\\"]'); if (btn) { btn.click(); }\"\n\t\t\t\t\t\n\t\t\t\t\tset meetFound to true\n\t\t\t\t\texit repeat\n\t\t\t\tend if\n\t\t\tend repeat\n\t\t\tif meetFound then exit repeat\n\t\tend repeat\n\tend tell\non error\n\t-- If Chrome isn't open, just ignore and move to Gather check\n\tset meetFound to false\nend try\n\n-- ---------------------------------------------------------\n-- PART 2: CHECK GATHER OR FALLBACK\n-- ---------------------------------------------------------\nif meetFound is false then\n\ttell application \"System Events\"\n\t\tset runningProcesses to name of every application process\n\t\t\n\t\t-- CHECK FOR GATHER\n\t\tif \"Gather\" is in runningProcesses then\n\t\t\t\n\t\t\t-- 1. Remember where you are now\n\t\t\tset currentAppProcess to first application process whose frontmost is true\n\t\t\tset currentAppName to name of currentAppProcess\n\t\t\t\n\t\t\t-- 2. Switch to Gather\n\t\t\ttell process \"Gather\"\n\t\t\t\tset frontmost to true\n\t\t\tend tell\n\t\t\t\n\t\t\t-- 3. Wait for focus (crucial for keystrokes)\n\t\t\tdelay 0.1\n\t\t\t\n\t\t\t-- 4. Send Mute Command (Cmd + Shift + A)\n\t\t\tkeystroke \"a\" using {command down, shift down}\n\t\t\t\n\t\t\t-- 5. Switch back to your original app\n\t\t\ttell process currentAppName\n\t\t\t\tset frontmost to true\n\t\t\tend tell\n\t\t\t\n\t\t-- FALLBACK (Neither Meet nor Gather found)\n\t\telse\n\t\t\tkeystroke \"a\" using {command down, shift down}\n\t\tend if\n\tend tell\nend if",
+              "BTTShortcutKeyboardType" : 0,
+              "BTTShortcutKeyCode" : -1,
+              "BTTOrder" : 0,
+              "BTTAutoAdaptToKeyboardLayout" : 0
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1771154806.4036331,
+          "BTTTriggerType" : 624,
+          "BTTTriggerTypeDescriptionReadOnly" : "Please Select a Trigger ",
+          "BTTTriggerClass" : "BTTTriggerTypeKeySequence",
+          "BTTUUID" : "D92E750C-EB15-4C7B-961C-92F3FC5EA6C6",
+          "BTTOrder" : 0,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1771154846.140713,
+              "BTTTriggerParentUUID" : "D92E750C-EB15-4C7B-961C-92F3FC5EA6C6",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeySequence",
+              "BTTUUID" : "1733FB52-9588-4445-86DD-6F28266562F5",
+              "BTTLayoutIndependentActionChar" : "ESCAPE",
+              "BTTShortcutToSend" : "53",
+              "BTTOrder" : 0
+            }
+          ],
+          "BTTKeySequence" : {
+            "BTTPauseBetween" : 0.29999999999999999,
+            "BTTKeyCount" : 2,
+            "BTTKeyboardType" : 1556,
+            "BTTKeySequenceDownKeys" : [
+              {
+                "BTTKEYCode" : 59,
+                "BTTKEYDown" : 1,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 792847360
+              }
+            ],
+            "BTTKeySequenceMixedKeys" : [
+              {
+                "BTTKEYCode" : 59,
+                "BTTKEYDown" : 1,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 792847360
+              },
+              {
+                "BTTKEYCode" : 59,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 792847360
+              }
+            ],
+            "BTTKeySequenceUpKeys" : [
+              {
+                "BTTKEYCode" : 59,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 792847360
+              }
+            ]
+          }
+        },
+        {
+          "BTTLastUpdatedAt" : 1752115415.6974602,
+          "BTTTriggerType" : 102,
+          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Up",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "431A21B4-1C69-4A0A-B432-B4C15DF8BA61",
+          "BTTOrder" : 2,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1746748261.9174681,
+              "BTTTriggerParentUUID" : "431A21B4-1C69-4A0A-B432-B4C15DF8BA61",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+              "BTTUUID" : "93A6CD6B-A224-49A0-A053-80F417FE394F",
+              "BTTPredefinedActionType" : 21,
+              "BTTPredefinedActionName" : "Maximize Window",
+              "BTTOrder" : 0
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1752115415.6975,
+          "BTTTriggerType" : 100,
+          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "3D7AB8F2-1348-4C56-825E-A6EF016D725E",
+          "BTTOrder" : 3,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1746748015.204922,
+              "BTTTriggerParentUUID" : "3D7AB8F2-1348-4C56-825E-A6EF016D725E",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+              "BTTUUID" : "8B1492D1-6663-4376-B6F1-AF6981828C39",
+              "BTTPredefinedActionType" : 19,
+              "BTTPredefinedActionName" : "Maximize Window Left Half",
+              "BTTOrder" : 0
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1752115415.697515,
+          "BTTTriggerType" : 103,
+          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "E496C54E-7EE0-479D-8ED1-7142748DEA61",
+          "BTTOrder" : 5,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1747268351.602531,
+              "BTTTriggerParentUUID" : "E496C54E-7EE0-479D-8ED1-7142748DEA61",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+              "BTTUUID" : "9A3F76C4-8B57-435C-91DC-8AD38EC4AD07",
+              "BTTPredefinedActionType" : 84,
+              "BTTPredefinedActionName" : "Restore Old Window Size",
+              "BTTOrder" : 0
+            }
+          ]
+        },
+        {
+          "BTTLastUpdatedAt" : 1752115415.697494,
+          "BTTTriggerType" : 101,
+          "BTTTriggerTypeDescriptionReadOnly" : "3 Finger Swipe Right",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTUUID" : "AFF2BF22-EE5B-48D4-B012-4C91CE386BF8",
+          "BTTOrder" : 4,
+          "BTTActionsToExecute" : [
+            {
+              "BTTLastUpdatedAt" : 1746748235.2879591,
+              "BTTTriggerParentUUID" : "AFF2BF22-EE5B-48D4-B012-4C91CE386BF8",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+              "BTTUUID" : "2F2ED562-E4B5-4B95-A469-A9B5C9508867",
+              "BTTPredefinedActionType" : 20,
+              "BTTPredefinedActionName" : "Maximize Window Right Half",
+              "BTTOrder" : 0
+            }
+          ],
+          "BTTTriggerConfig" : {
+            "BTTNoTouchTimeout" : 0
+          },
+          "BTTTriggerCheatSheetConfig" : {
+            "BTTCheatSheetExclude" : 0
+          }
+        },
+        {
+          "BTTLastUpdatedAt" : 1714613357.5123439,
+          "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
+          "BTTUUID" : "44664470-902D-4266-803B-CF69630CC661",
+          "BTTOrder" : 0,
+          "BTTMergeIntoTouchBarGroups" : 0
+        }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "BT.L",
+      "BTTAppName" : "Recently Used",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTTriggers" : [
+
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.apple.finder",
+      "BTTAppName" : "Finder",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTTriggers" : [
+
+      ]
+    }
+  ],
+  "BTTPresetSnapAreas" : [
+
+  ]
+}
