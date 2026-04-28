@@ -3,3 +3,9 @@
   type          = "git-repo"
   url           = "https://github.com/silkm/doom-config.git"
   refreshPeriod = "168h"
+
+# Aerospace config — https://github.com/silkm/aerospace-config
+[".config/aerospace"]
+  type          = "git-repo"
+  url           = "https://github.com/silkm/aerospace-config.git"
+  refreshPeriod = "168h"
