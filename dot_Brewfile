@@ -27,7 +27,12 @@ brew "jq"
 brew "pyenv"
 brew "uv"
 
+# --- R ---
+brew "r"
+
 # --- Terminal & window management ---
+cask "karabiner-elements"
+
 cask "ghostty"
 cask "aerospace"
 
