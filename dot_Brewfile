@@ -8,7 +8,11 @@ brew "1password-cli"
 # --- Shell ---
 brew "powerlevel10k"
 brew "direnv"
+brew "grep"
 brew "zsh-completions"
+
+# --- Libraries ---
+brew "openblas"
 
 # --- Emacs ---
 tap "d12frosted/emacs-plus"
