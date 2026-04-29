@@ -1,0 +1,52 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# zsh-completions
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+fi
+
+# Init completion system
+autoload -Uz compinit
+compinit
+
+# PATH
+export PATH="${HOME}/.config/emacs/bin:$PATH"
+if [ -d "$(brew --prefix)/opt/grep/libexec/gnubin" ]; then
+  export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
+fi
+
+# GHCup
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
+
+# openblas (for R packages etc.)
+export LDFLAGS="-L$(brew --prefix)/opt/openblas/lib"
+export CPPFLAGS="-I$(brew --prefix)/opt/openblas/include"
+export PKG_CONFIG_PATH="$(brew --prefix)/opt/openblas/lib/pkgconfig"
+
+# Direnv
+eval "$(direnv hook zsh)"
+
+# --- Aliases ---
+
+alias R='R --no-save'
+alias r='R --no-save'
+
+alias ggssh='gcloud compute config-ssh'
+alias ggls='gcloud storage ls'
+alias ggLs='gcloud storage ls -L'
+alias ggcat='gcloud storage cat'
+alias ggcc='gcloud compute instances'
+
+alias ec='emacsclient -t'
+
+# uv venv helpers
+alias vvdirenv='echo "layout uv" > .envrc && direnv allow'
+alias vvup='source ./.venv/bin/activate'
+alias vvinstall='uv pip install python-lsp-server basedpyright bump2version black debugpy pre-commit pytest ruff setuptools'
+
+# Powerlevel10k
+source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
