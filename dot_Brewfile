@@ -18,6 +18,10 @@ brew "openblas"
 tap "d12frosted/emacs-plus"
 brew "d12frosted/emacs-plus/emacs-plus"
 brew "coreutils"   # doom dependency
+brew "hunspell"
+brew "clang-format"
+brew "pngpaste"
+brew "plantuml"
 
 # --- CLI tools ---
 brew "ripgrep"
@@ -26,9 +30,24 @@ brew "fzf"
 brew "bat"
 brew "eza"
 brew "jq"
+brew "tmux"
+brew "wget"
+brew "rsync"
+brew "htop"
+brew "watch"
+brew "gnu-sed"
+brew "gnu-tar"
+brew "findutils"
+brew "imagemagick"
+brew "ffmpeg"
+brew "pandoc"
+brew "shellcheck"
+brew "shfmt"
+brew "graphviz"
+brew "glow"
+brew "git-secrets"
 
 # --- Python ---
-brew "pyenv"
 brew "uv"
 
 # --- R ---
@@ -36,6 +55,11 @@ brew "r"
 
 # --- Apps ---
 cask "spotify"
+cask "slack"
+cask "gather"
+cask "vlc"
+cask "zoom"
+cask "inkscape"
 
 # --- Terminal & window management ---
 cask "karabiner-elements"
