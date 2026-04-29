@@ -36,6 +36,10 @@ This clones the repo and automatically:
 
 ## Post install extras
 
+### Google Cloud SDK
+Install following the [official instructions](https://docs.cloud.google.com/sdk/docs/install-sdk#mac).
+
+
 ### Emacs launcher app
 Create an Automator app (`~/Applications/Emacs.app`) with a **Shell Script** action:
 ```sh
