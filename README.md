@@ -31,6 +31,7 @@ This clones the repo and automatically:
 - Writes `~/.doom.d/secrets.el` from 1Password
 
 ### 5. Manual steps
+- Add `~/.ssh/id_ed25519.pub` to GitHub
 - Install **BetterTouchTool** (outside brew), then run `chezmoi apply` to import the preset
 
 ## Post install extras
@@ -52,11 +53,12 @@ zsh --login -c "open -na $EMACSDIR/bin/emacs $@"
 | Item | Vault | Used for |
 |------|-------|----------|
 | `chezmoi_doom_emacs_secrets.el` | Private | `~/.doom.d/secrets.el` |
+| `chezmoi_ssh_config` | Private | `~/.ssh/config` |
 
 ## TODO
 
 - [ ] Add GHC to PATH in zshrc
 - [ ] Add Karabiner Elements config from new laptop (separate repo via chezmoi external)
 - [x] Add Aerospace config (separate repo via chezmoi external)
-- [ ] Add Ghostty config (~/.config/ghostty/config)
-- [ ] Add clean ~/.ssh/config for new machine
+- [x] Add Ghostty config (~/.config/ghostty/config)
+- [x] Add clean ~/.ssh/config for new machine (via 1Password)
