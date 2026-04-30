@@ -77,7 +77,7 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
     inner.vertical =   5
     outer.left =       5
     outer.bottom =     5
-    outer.top =        5
+    outer.top =        37
     outer.right =      5
 
 # 'main' binding mode declaration
