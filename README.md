@@ -51,7 +51,6 @@ zsh --login -c "open -na $EMACSDIR/bin/emacs $@"
 | Repo | Target |
 |------|--------|
 | [silkm/doom-config](https://github.com/silkm/doom-config) | `~/.doom.d` |
-| [silkm/aerospace-config](https://github.com/silkm/aerospace-config) | `~/.config/aerospace` |
 
 ## 1Password items required
 | Item | Vault | Used for |
@@ -63,6 +62,6 @@ zsh --login -c "open -na $EMACSDIR/bin/emacs $@"
 
 - [ ] Add GHC to PATH in zshrc
 - [ ] Add Karabiner Elements config from new laptop (separate repo via chezmoi external)
-- [x] Add Aerospace config (separate repo via chezmoi external)
+- [x] Add Aerospace config
 - [x] Add Ghostty config (~/.config/ghostty/config)
 - [x] Add clean ~/.ssh/config for new machine (via 1Password)
