@@ -7,7 +7,9 @@ config-version = 2
 
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+    'exec-and-forget borders active_color=0xffffffff inactive_color=0x00000000 width=5.0'
+]
 
 # Start AeroSpace at login
 start-at-login = false
@@ -49,8 +51,7 @@ automatically-unhide-macos-hidden-apps = false
 #                          "C", "D", "E", "F", "G", "I", "M", "N", "O", "P", "Q",
 #                          "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
-                         "L", "D", "C", "V", "Q", "M", "W", "Z"]
+persistent-workspaces = ["B", "L", "D", "C", "V", "N", "R", "T", "S", "G"]
 
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -77,7 +78,7 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
     inner.vertical =   5
     outer.left =       5
     outer.bottom =     5
-    outer.top =        37
+    outer.top =        30
     outer.right =      5
 
 # 'main' binding mode declaration
@@ -134,44 +135,35 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
     alt-quote = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
-    alt-7 = 'workspace 7'
-    alt-8 = 'workspace 8'
-    alt-9 = 'workspace 9'
-    alt-0 = 'workspace 0'
+    alt-b = 'workspace B'
     alt-l = 'workspace L'
     alt-d = 'workspace D'
     alt-c = 'workspace C'
     alt-v = 'workspace V'
-    alt-q = 'workspace Q'
-    alt-m = 'workspace M'
-    alt-w = 'workspace W'
-    alt-z = 'workspace Z'
+    alt-n = 'workspace N'
+    alt-r = 'workspace R'
+    alt-t = 'workspace T'
+    alt-s = 'workspace S'
+    alt-g = 'workspace G'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    alt-cmd-1 = 'move-node-to-workspace 1'
-    alt-cmd-2 = 'move-node-to-workspace 2'
-    alt-cmd-3 = 'move-node-to-workspace 3'
-    alt-cmd-4 = 'move-node-to-workspace 4'
-    alt-cmd-5 = 'move-node-to-workspace 5'
-    alt-cmd-6 = 'move-node-to-workspace 6'
-    alt-cmd-7 = 'move-node-to-workspace 7'
-    alt-cmd-8 = 'move-node-to-workspace 8'
-    alt-cmd-9 = 'move-node-to-workspace 9'
-    alt-cmd-0 = 'move-node-to-workspace 0'
+    alt-cmd-b = 'move-node-to-workspace B'
     alt-cmd-l = 'move-node-to-workspace L'
     alt-cmd-d = 'move-node-to-workspace D'
     alt-cmd-c = 'move-node-to-workspace C'
     alt-cmd-v = 'move-node-to-workspace V'
-    alt-cmd-q = 'move-node-to-workspace Q'
-    alt-cmd-m = 'move-node-to-workspace M'
-    alt-cmd-w = 'move-node-to-workspace W'
-    alt-cmd-z = 'move-node-to-workspace Z'
+    alt-cmd-n = 'move-node-to-workspace N'
+    alt-cmd-r = 'move-node-to-workspace R'
+    alt-cmd-t = 'move-node-to-workspace T'
+    alt-cmd-s = 'move-node-to-workspace S'
+    alt-cmd-g = 'move-node-to-workspace G'
+
+    alt-cmd-shift-h = ['join-with left', 'mode main']
+    alt-cmd-shift-a = ['join-with down', 'mode main']
+    alt-cmd-shift-o = ['join-with up', 'mode main']
+    alt-cmd-shift-e = ['join-with right', 'mode main']
+
+    alt-p = ['flatten-workspace-tree', 'mode main'] # reset layout
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
@@ -191,8 +183,3 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
 
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode main']
-
-    alt-cmd-h = ['join-with left', 'mode main']
-    alt-cmd-a = ['join-with down', 'mode main']
-    alt-cmd-o = ['join-with up', 'mode main']
-    alt-cmd-e = ['join-with right', 'mode main']
