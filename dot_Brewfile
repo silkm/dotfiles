@@ -67,6 +67,8 @@ cask "ghostty"
 cask "aerospace"
 tap "FelixKratz/formulae"
 brew "sketchybar"
+brew "borders"
 
 # --- Fonts (for terminal / p10k) ---
 cask "font-meslo-lg-nerd-font"
+cask "font-inconsolata"
