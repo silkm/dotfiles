@@ -4,3 +4,18 @@ cursor-style = block
 cursor-style-blink = false
 term = xterm-256color
 theme = Catppuccin Mocha
+
+keybind = ctrl+shift+alt+o=goto_split:up
+keybind = ctrl+shift+alt+h=goto_split:left
+keybind = ctrl+shift+alt+a=goto_split:down
+keybind = ctrl+shift+alt+e=goto_split:right
+
+keybind = ctrl+shift+alt+p=new_split:right
+keybind = ctrl+shift+alt+f=new_split:down
+
+keybind = ctrl+shift+alt+w=close_surface
+
+keybind = ctrl+shift+alt+n=resize_split:left:10
+keybind = ctrl+shift+alt+r=resize_split:up:10
+keybind = ctrl+shift+alt+t=resize_split:down:10
+keybind = ctrl+shift+alt+s=resize_split:right:10
