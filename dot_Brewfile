@@ -3,7 +3,7 @@ brew "chezmoi"
 brew "git"
 brew "git-delta"        # pager for git diffs
 cask "1password"
-brew "1password-cli"
+cask "1password-cli"
 
 # --- Shell ---
 brew "powerlevel10k"
