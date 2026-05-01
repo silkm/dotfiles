@@ -61,7 +61,6 @@ cask "spotify"
 cask "slack"
 cask "gather"
 cask "vlc"
-cask "zoom"
 cask "inkscape"
 
 # --- Terminal & window management ---
