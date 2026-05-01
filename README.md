@@ -12,7 +12,7 @@ xcode-select --install
 ### 2. Homebrew, chezmoi, and 1Password CLI
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install chezmoi 1password-cli
+brew install chezmoi && brew install --cask 1password-cli
 ```
 
 ### 3. Install 1Password 8 and enable CLI integration
