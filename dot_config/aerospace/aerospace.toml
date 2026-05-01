@@ -158,13 +158,13 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
     alt-cmd-s = 'move-node-to-workspace S'
     alt-cmd-g = 'move-node-to-workspace G'
 
-    alt-cmd-shift-h = ['join-with left', 'mode main']
-    alt-cmd-shift-a = ['join-with down', 'mode main']
-    alt-cmd-shift-o = ['join-with up', 'mode main']
-    alt-cmd-shift-e = ['join-with right', 'mode main']
+    alt-cmd-shift-h = 'join-with left'
+    alt-cmd-shift-a = 'join-with down'
+    alt-cmd-shift-o = 'join-with up'
+    alt-cmd-shift-e = 'join-with right'
 
-    alt-p = ['flatten-workspace-tree', 'mode main'] # reset layout
-    alt-k = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+    alt-k = 'flatten-workspace-tree' # reset layout
+    alt-j = 'layout floating tiling' # Toggle between floating and tiling layout
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
