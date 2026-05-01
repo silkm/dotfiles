@@ -164,6 +164,7 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
     alt-cmd-shift-e = ['join-with right', 'mode main']
 
     alt-p = ['flatten-workspace-tree', 'mode main'] # reset layout
+    alt-k = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
