@@ -39,4 +39,12 @@ sketchybar --add item clock right \
   update_freq=10 \
   script="$PLUGIN_DIR/clock.sh"
 
+# Battery (right)
+sketchybar --add item battery right \
+  --set battery \
+  update_freq=60 \
+  label.padding_right=8 \
+  script="$PLUGIN_DIR/battery.sh" \
+  --subscribe battery system_woke power_source_change
+
 sketchybar --update
