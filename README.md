@@ -39,6 +39,13 @@ This clones the repo and automatically:
 ### Google Cloud SDK
 Install following the [official instructions](https://docs.cloud.google.com/sdk/docs/install-sdk#mac).
 
+### Google Calendar in SketchyBar
+SketchyBar shows upcoming meetings (within 5 minutes of start time) via the macOS Calendar app.
+
+1. Open **System Settings → Internet Accounts → Add Account → Google**
+2. Sign in and enable **Calendars**
+
+The bar item appears automatically when a meeting is 5 minutes away and prepends `!!!` at 1 minute. No extra tools required.
 
 ### Emacs launcher app
 Create an Automator app (`~/Applications/Emacs.app`) with a **Shell Script** action:
