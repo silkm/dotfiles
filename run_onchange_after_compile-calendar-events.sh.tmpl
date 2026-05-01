@@ -1,0 +1,4 @@
+#!/bin/sh
+# calendar_events.swift sha256: {{ include "dot_config/sketchybar/plugins/calendar_events.swift" | sha256sum }}
+mkdir -p "$HOME/.cache/sketchybar"
+swiftc -O "$HOME/.config/sketchybar/plugins/calendar_events.swift" -o "$HOME/.cache/sketchybar/calendar-events"

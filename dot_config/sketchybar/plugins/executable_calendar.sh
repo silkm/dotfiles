@@ -1,12 +1,6 @@
 #!/bin/bash
 
 BINARY="$HOME/.cache/sketchybar/calendar-events"
-SWIFT_SRC="$HOME/.config/sketchybar/plugins/calendar_events.swift"
-
-if [ ! -f "$BINARY" ] || [ "$SWIFT_SRC" -nt "$BINARY" ]; then
-    mkdir -p "$HOME/.cache/sketchybar"
-    swiftc -O "$SWIFT_SRC" -o "$BINARY" 2>/dev/null
-fi
 
 RESULT=$("$BINARY" 2>/dev/null)
 
