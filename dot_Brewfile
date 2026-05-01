@@ -23,6 +23,9 @@ brew "clang-format"
 brew "pngpaste"
 brew "plantuml"
 
+# --- AI ---
+cask "claude-code"
+
 # --- CLI tools ---
 brew "ripgrep"
 brew "fd"
