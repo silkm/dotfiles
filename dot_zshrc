@@ -4,15 +4,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # zsh-completions
-if type brew &>/dev/null; then
-  FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+if [[ -o interactive ]]; then
+  if type brew &>/dev/null; then
+    FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+  fi
+  autoload -Uz compinit
+  compinit -u
 fi
 
-# Init completion system
-autoload -Uz compinit
-compinit
-
 # PATH
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="${HOME}/.config/emacs/bin:$PATH"
 if [ -d "$(brew --prefix)/opt/grep/libexec/gnubin" ]; then
   export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
@@ -30,6 +31,7 @@ export PKG_CONFIG_PATH="$(brew --prefix)/opt/openblas/lib/pkgconfig"
 eval "$(direnv hook zsh)"
 
 # --- Aliases ---
+alias ls='eza'
 
 alias R='R --no-save'
 alias r='R --no-save'
