@@ -1,2 +1,6 @@
-cursor-style = bar
+font-family = Menlo
+font-style = Regular
+cursor-style = block
 cursor-style-blink = false
+term = xterm-256color
+theme = Catppuccin Mocha
