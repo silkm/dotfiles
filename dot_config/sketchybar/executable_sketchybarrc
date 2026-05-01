@@ -47,4 +47,11 @@ sketchybar --add item battery right \
   script="$PLUGIN_DIR/battery.sh" \
   --subscribe battery system_woke power_source_change
 
+# Calendar (right)
+sketchybar --add item calendar right \
+  --set calendar \
+  update_freq=60 \
+  drawing=off \
+  script="$PLUGIN_DIR/calendar.sh"
+
 sketchybar --update
