@@ -65,7 +65,6 @@
     command_execution_time    # previous command duration
     virtualenv                # python virtual environment
     direnv                    # direnv status
-    gcloud                    # active GCP project
     context                   # user@host
     # time                    # current time
     # =========================[ Line #2 ]=========================
