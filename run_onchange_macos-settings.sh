@@ -5,7 +5,7 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock tilesize -int 25
 defaults write com.apple.dock largesize -int 128
-defaults write com.apple.dock magnification -bool true
+defaults write com.apple.dock magnification -bool false
 defaults write com.apple.dock mineffect -string "scale"
 defaults write com.apple.dock orientation -string "left"
 defaults write com.apple.dock showLaunchpadGestureEnabled -bool false
