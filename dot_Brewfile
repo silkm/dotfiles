@@ -74,3 +74,4 @@ brew "borders"
 # --- Fonts (for terminal / p10k) ---
 cask "font-meslo-lg-nerd-font"
 cask "font-inconsolata"
+cask "font-inconsolata-nerd-font"
