@@ -41,12 +41,22 @@ This clones the repo and automatically:
 Install following the [official instructions](https://docs.cloud.google.com/sdk/docs/install-sdk#mac).
 
 ### Google Calendar in SketchyBar
-SketchyBar shows upcoming meetings (within 5 minutes of start time) via the macOS Calendar app.
+SketchyBar shows upcoming meetings via the macOS Calendar app.
 
 1. Open **System Settings → Internet Accounts → Add Account → Google**
 2. Sign in and enable **Calendars**
 
-The bar item appears automatically when a meeting is 5 minutes away and prepends `!!!` at 1 minute. No extra tools required.
+Meetings appear 15 minutes before start. Font turns red at 2 minutes. Meetings linger for 5 minutes after start then clear.
+
+### Google Meet launcher app
+Create an Automator app (`/Applications/meethome.app`) with a **Run Shell Script** action. First find your Chrome profile directory:
+```sh
+ls ~/Library/Application\ Support/Google/Chrome/ | grep Profile
+```
+Then use that profile name in the script:
+```sh
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --profile-directory="Profile N" "https://meet.google.com"
+```
 
 ### Emacs launcher app
 Create an Automator app (`~/Applications/Emacs.app`) with a **Shell Script** action:
