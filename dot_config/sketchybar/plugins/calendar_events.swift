@@ -7,8 +7,9 @@ var lines: [String] = []
 
 func fetchEvents() {
     let now = Date()
-    let end = now.addingTimeInterval(5 * 60)
-    let predicate = store.predicateForEvents(withStart: now, end: end, calendars: nil)
+    let windowStart = now.addingTimeInterval(-5 * 60)
+    let windowEnd = now.addingTimeInterval(15 * 60)
+    let predicate = store.predicateForEvents(withStart: windowStart, end: windowEnd, calendars: nil)
     let events = store.events(matching: predicate).sorted { $0.startDate < $1.startDate }
     for event in events {
         let ts = Int(event.startDate.timeIntervalSince1970)
