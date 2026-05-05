@@ -1,11 +1,13 @@
 #!/bin/bash
 
 RESULT=$(osascript \
-  -e 'tell application "Spotify"' \
-  -e '  if player state is playing or player state is paused then' \
-  -e '    return (player state as string) & "|||" & (artist of current track) & " — " & (name of current track)' \
-  -e '  end if' \
-  -e 'end tell' 2>/dev/null)
+  -e 'if application "Spotify" is running then' \
+  -e '  tell application "Spotify"' \
+  -e '    if player state is playing or player state is paused then' \
+  -e '      return (player state as string) & "|||" & (artist of current track) & " — " & (name of current track)' \
+  -e '    end if' \
+  -e '  end tell' \
+  -e 'end if' 2>/dev/null)
 
 if [ -z "$RESULT" ]; then
     sketchybar --set "$NAME" drawing=off
