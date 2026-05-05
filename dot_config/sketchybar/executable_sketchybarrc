@@ -23,15 +23,26 @@ sketchybar --default \
 
 # Aerospace workspaces (left)
 sketchybar --add event aerospace_workspace_change
+sketchybar --add event spotify_change com.spotify.client.PlaybackStateChanged
 
 for sid in B L D C V N R T S G; do
   sketchybar --add item "space.$sid" left \
     --subscribe "space.$sid" aerospace_workspace_change \
     --set "space.$sid" \
-    label="$sid" \
-    click_script="aerospace workspace $sid" \
-    script="$PLUGIN_DIR/aerospace.sh $sid"
+      icon="$sid" \
+      label.font="Inconsolata Nerd Font Mono:Regular:18.0" \
+      label.padding_right=12 \
+      click_script="aerospace workspace $sid" \
+      script="$PLUGIN_DIR/aerospace.sh $sid"
 done
+
+# Populate icons at startup
+INIT_FOCUSED="$(aerospace list-workspaces --focused 2>/dev/null | head -1)"
+for sid in B L D C V N R T S G; do
+  NAME="space.$sid" FOCUSED_WORKSPACE="$INIT_FOCUSED" \
+    "$PLUGIN_DIR/aerospace.sh" "$sid" &
+done
+wait
 
 # Clock (right)
 sketchybar --add item clock right \
@@ -48,6 +59,14 @@ sketchybar --add item battery right \
   label.padding_right=8 \
   script="$PLUGIN_DIR/battery.sh" \
   --subscribe battery system_woke power_source_change
+
+# Spotify (right)
+sketchybar --add item spotify right \
+  --subscribe spotify spotify_change \
+  --set spotify \
+    drawing=off \
+    script="$PLUGIN_DIR/spotify.sh"
+NAME="spotify" "$PLUGIN_DIR/spotify.sh"
 
 # Calendar (right)
 sketchybar --add item calendar right \
