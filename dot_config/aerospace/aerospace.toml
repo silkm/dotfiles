@@ -187,6 +187,14 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode main']
 
+# Note this is no longer bound or needed
+[mode.launcher.binding]
+    esc = 'mode main'
+    s = ["exec-and-forget osascript -e 'tell application \"Safari\" to make new document'", 'mode main']
+    c = ["exec-and-forget osascript -e 'tell application \"Google Chrome\" to make new window'", 'mode main']
+    m = ['exec-and-forget "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --profile-directory="Profile 3" "https://meet.google.com"', 'mode main']
+
+
 [[on-window-detected]]
 if.app-name-regex-substring = 'Slack'
 run = 'move-node-to-workspace S'
