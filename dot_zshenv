@@ -1,2 +1,5 @@
-export EDITOR="emacsclient -t --alternate-editor=emacs"
-export VISUAL="emacsclient -nw --alternate-editor=emacs"
+# emacs-plus forces TMPDIR=/tmp internally, so the daemon binds to /tmp/emacs<UID>/server
+# while emacsclient uses the shell's TMPDIR. Pin both to the same path.
+export EMACS_SOCKET_NAME="/tmp/emacs${UID}/server"
+export EDITOR="emacsclient -t --alternate-editor=''"
+export VISUAL="emacsclient -nw --alternate-editor=''"

@@ -13,6 +13,9 @@ export PATH="${HOME}/.config/emacs/bin:$PATH"
 if [ -d "$(brew --prefix)/opt/grep/libexec/gnubin" ]; then
   export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
 fi
+if [ -d "$HOME/scripts/interactive-analysis-environment" ]; then
+  export PATH="$HOME/scripts/interactive-analysis-environment:$PATH"
+fi
 
 # Google Cloud SDK
 if [ -d "$(brew --prefix)/share/google-cloud-sdk" ]; then
@@ -31,6 +34,22 @@ export PKG_CONFIG_PATH="$(brew --prefix)/opt/openblas/lib/pkgconfig"
 # Direnv
 eval "$(direnv hook zsh)"
 
+# fzf — fuzzy finder with fd as the source
+if [ -d "$(brew --prefix)/opt/fzf" ]; then
+  source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+  source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
+
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+
+  # Rebind: Ctrl-F = file picker, Ctrl-G = cd into subdir. Ctrl-R stays on history.
+  bindkey -r '^T'
+  bindkey -r '\ec'
+  bindkey '^F' fzf-file-widget
+  bindkey '^G' fzf-cd-widget
+fi
+
 # --- Aliases ---
 alias ls='eza'
 
@@ -43,7 +62,7 @@ alias ggLs='gcloud storage ls -L'
 alias ggcat='gcloud storage cat'
 alias ggcc='gcloud compute instances'
 
-alias ec='emacsclient -t'
+alias ec="emacsclient -t --alternate-editor=''"
 
 # uv venv helpers
 alias vvdirenv='echo "layout uv" > .envrc && direnv allow'
