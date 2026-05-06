@@ -14,7 +14,7 @@ app_icon() {
     Mail)                                             echo "󰇮" ;;
     Calendar)                                         echo "󰃭" ;;
     Zoom)                                             echo "󰊾" ;;
-    *)                                                echo "" ;;
+    *)                                                echo "󰘔" ;;
   esac
 }
 
