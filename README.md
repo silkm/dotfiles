@@ -32,7 +32,6 @@ This clones the repo and automatically:
 
 ### 5. Manual steps
 - Add `~/.ssh/id_ed25519.pub` to GitHub
-- Install **BetterTouchTool** (outside brew), then run `chezmoi apply` to import the preset
 - Install **Zoom** manually from [zoom.us/download](https://zoom.us/download)
 
 ## Post install extras
