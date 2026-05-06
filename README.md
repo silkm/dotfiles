@@ -38,7 +38,11 @@ This clones the repo and automatically:
 ## Post install extras
 
 ### Google Cloud SDK
-Install following the [official instructions](https://docs.cloud.google.com/sdk/docs/install-sdk#mac).
+Installed automatically via `brew bundle`. After first install, authenticate:
+```sh
+gcloud auth login
+gcloud config set project <your-project>
+```
 
 ### Google Calendar in SketchyBar
 SketchyBar shows upcoming meetings via the macOS Calendar app.
@@ -78,7 +82,7 @@ zsh --login -c "open -na $EMACSDIR/bin/emacs $@"
 
 ## TODO
 
-- [ ] Add GHC to PATH in zshrc
+- [x] Add GHC to PATH in zshrc
 - [ ] Add Karabiner Elements config from new laptop (separate repo via chezmoi external)
 - [x] Add Aerospace config
 - [x] Add Ghostty config (~/.config/ghostty/config)
