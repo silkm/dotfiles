@@ -50,6 +50,8 @@ brew "graphviz"
 brew "glow"
 brew "git-secrets"
 
+cask "google-cloud-sdk"
+
 # --- Python ---
 brew "uv"
 
