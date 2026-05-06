@@ -175,6 +175,7 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-m = 'exec-and-forget /Applications/Ghostty.app/Contents/MacOS/ghostty -e ~/.config/aerospace/switcher.sh'
     alt-cmd-m = 'exec-and-forget /Applications/Ghostty.app/Contents/MacOS/ghostty -e ~/.config/aerospace/launcher.sh'
+    alt-cmd-shift-ctrl-j = 'exec-and-forget osascript ~/.config/aerospace/toggle-mute.applescript'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
