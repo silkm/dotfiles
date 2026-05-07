@@ -32,6 +32,11 @@ for sid in B L D C V N R T S G; do
       icon="$sid" \
       label.font="Inconsolata Nerd Font Mono:Regular:18.0" \
       label.padding_right=12 \
+      background.color=0xffffffff \
+      background.height=2 \
+      background.corner_radius=0 \
+      background.y_offset=-10 \
+      background.drawing=off \
       click_script="aerospace workspace $sid" \
       script="$PLUGIN_DIR/aerospace.sh $sid"
 done

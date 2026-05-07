@@ -18,17 +18,14 @@ app_icon() {
   esac
 }
 
-# Update underline immediately before the slower aerospace query
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-  sketchybar --set "$NAME" \
-    background.drawing=on \
-    background.color=0xffffffff \
-    background.height=2 \
-    background.corner_radius=0 \
-    background.y_offset=-10
+  bg_state="on"
 else
-  sketchybar --set "$NAME" background.drawing=off
+  bg_state="off"
 fi
+
+# Update underline immediately before the slower aerospace query
+sketchybar --set "$NAME" background.drawing="$bg_state"
 
 # Unique app names in this workspace
 apps=$(aerospace list-windows --workspace "$1" 2>/dev/null \
@@ -49,5 +46,6 @@ icons="${icons% }"
 padding_right=$((4 + count * 4))
 
 sketchybar --set "$NAME" \
+  background.drawing="$bg_state" \
   padding_right="$padding_right" \
   label="$label"
