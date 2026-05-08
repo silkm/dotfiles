@@ -51,16 +51,6 @@ SketchyBar shows upcoming meetings via the macOS Calendar app.
 
 Meetings appear 15 minutes before start. Font turns red at 2 minutes. Meetings linger for 5 minutes after start then clear.
 
-### Google Meet launcher app
-Create an Automator app (`/Applications/meethome.app`) with a **Run Shell Script** action. First find your Chrome profile directory:
-```sh
-ls ~/Library/Application\ Support/Google/Chrome/ | grep Profile
-```
-Then use that profile name in the script:
-```sh
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --profile-directory="Profile N" "https://meet.google.com"
-```
-
 ### Emacs launcher app
 Create an Automator app (`~/Applications/Emacs.app`) with a **Shell Script** action:
 ```sh
