@@ -17,6 +17,7 @@ apps=(
     "Discord"
     "Gather"
     "VLC"
+    "1Password"
     "meethome"
 )
 
@@ -91,6 +92,9 @@ case "$selected" in
         ;;
     VLC)
         launch_deferred open -a VLC
+        ;;
+    1Password)
+        launch_deferred open -a 1Password
         ;;
     meethome)
         launch_deferred open -na "Google Chrome" --args --new-window "https://meet.google.com"
