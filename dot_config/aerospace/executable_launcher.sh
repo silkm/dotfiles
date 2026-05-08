@@ -93,7 +93,7 @@ case "$selected" in
         launch_deferred open -a VLC
         ;;
     meethome)
-        launch_deferred open -na "Google Chrome" "https://meet.google.com"
+        launch_deferred open -na "Google Chrome" --args --new-window "https://meet.google.com"
         ;;
     "")
         ;;
