@@ -177,26 +177,6 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
     alt-cmd-m = 'exec-and-forget /Applications/Ghostty.app/Contents/MacOS/ghostty -e ~/.config/aerospace/launcher.sh'
     alt-cmd-shift-ctrl-j = 'exec-and-forget osascript ~/.config/aerospace/toggle-mute.applescript'
 
-# 'service' binding mode declaration.
-# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
-# Note that this is no longer bound or needed
-[mode.service.binding]
-    esc = ['reload-config', 'mode main']
-    r = ['flatten-workspace-tree', 'mode main'] # reset layout
-    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-    backspace = ['close-all-windows-but-current', 'mode main']
-
-    # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
-    #s = ['layout sticky tiling', 'mode main']
-
-# Note this is no longer bound or needed
-[mode.launcher.binding]
-    esc = 'mode main'
-    s = ["exec-and-forget osascript -e 'tell application \"Safari\" to make new document'", 'mode main']
-    c = ["exec-and-forget osascript -e 'tell application \"Google Chrome\" to make new window'", 'mode main']
-    m = ['exec-and-forget "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --profile-directory="Profile 3" "https://meet.google.com"', 'mode main']
-
-
 [[on-window-detected]]
 if.app-name-regex-substring = 'Slack'
 run = 'move-node-to-workspace S'
