@@ -116,7 +116,7 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-period = 'layout tiles horizontal vertical'
-    alt-comma = 'layout accordion horizontal vertical'
+    alt-semicolon = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus left'
