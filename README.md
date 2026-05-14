@@ -51,6 +51,14 @@ gh auth login
 ```
 Pick **GitHub.com → SSH → Login with a web browser** to match the SSH-based git setup.
 
+After `gh auth login`, create `~/.authinfo` so Magit Forge can authenticate:
+```sh
+TOKEN=$(gh auth token)
+printf 'machine api.github.com login silkm^forge password %s\n' "$TOKEN" > ~/.authinfo
+chmod 600 ~/.authinfo
+```
+The `^forge` suffix scopes the token to Forge. `github.user = silkm` is already set in the managed `~/.gitconfig` — required for ghub to find the token.
+
 ### Kanata (home row mods)
 Installed automatically via `brew bundle`. Uses the Karabiner-DriverKit-VirtualHIDDevice driver that ships with Karabiner Elements, so no separate driver install is needed.
 
