@@ -1,0 +1,35 @@
+;; Home row mods on US QWERTY.
+;; Tap = letter, hold = modifier. tap-hold-release-keys only fires the
+;; modifier when the next key is on the opposite hand, which cuts misfires
+;; on inline trigrams like "as", "ed", "kl" during fast typing.
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defvar
+  tap-time 200
+  hold-time 200
+)
+
+(defsrc
+  caps    a    s    d    f    j    k    l    ;
+)
+
+(defalias
+  ;; Left hand pinky→index: alt cmd shift ctrl
+  hra (tap-hold-release-keys $tap-time $hold-time a lalt (h j k l ; y u i o p n m , . /))
+  hrs (tap-hold-release-keys $tap-time $hold-time s lmet (h j k l ; y u i o p n m , . /))
+  hrd (tap-hold-release-keys $tap-time $hold-time d lsft (h j k l ; y u i o p n m , . /))
+  hrf (tap-hold-release-keys $tap-time $hold-time f lctl (h j k l ; y u i o p n m , . /))
+
+  ;; Right hand index→pinky (mirror): ctrl shift cmd alt
+  hrj (tap-hold-release-keys $tap-time $hold-time j rctl (q w e r t a s d f g z x c v b))
+  hrk (tap-hold-release-keys $tap-time $hold-time k rsft (q w e r t a s d f g z x c v b))
+  hrl (tap-hold-release-keys $tap-time $hold-time l rmet (q w e r t a s d f g z x c v b))
+  hr; (tap-hold-release-keys $tap-time $hold-time ; ralt (q w e r t a s d f g z x c v b))
+)
+
+(deflayer base
+  lctl    @hra @hrs @hrd @hrf  @hrj @hrk @hrl @hr;
+)
