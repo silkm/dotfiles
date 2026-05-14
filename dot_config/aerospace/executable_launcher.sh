@@ -19,6 +19,7 @@ apps=(
     "VLC"
     "1Password"
     "meethome"
+    "gcal"
 )
 
 selected=$(printf '%s\n' "${apps[@]}" | fzf --prompt='launch: ' --reverse)
@@ -98,6 +99,11 @@ case "$selected" in
         ;;
     meethome)
         launch_deferred open -na "Google Chrome" --args --new-window "https://meet.google.com"
+        ;;
+    gcal)
+        launch_deferred osascript \
+            -e 'tell application "Safari" to make new document with properties {URL:"https://calendar.google.com/calendar/u/0/r/week"}' \
+            -e 'tell application "Safari" to activate'
         ;;
     "")
         ;;
