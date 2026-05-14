@@ -33,6 +33,7 @@ This clones the repo and automatically:
 ### 5. Manual steps
 - Add `~/.ssh/id_ed25519.pub` to GitHub
 - Install **Zoom** manually from [zoom.us/download](https://zoom.us/download)
+- System Settings → Keyboard → Keyboard Shortcuts → App Shortcuts → `+` → choose Safari, menu title `Move Tab to New Window`, press meh+F.
 
 ## Post install extras
 
@@ -49,6 +50,17 @@ Installed automatically via `brew bundle`. Authenticate via OAuth device flow (t
 gh auth login
 ```
 Pick **GitHub.com → SSH → Login with a web browser** to match the SSH-based git setup.
+
+### Kanata (home row mods)
+Installed automatically via `brew bundle`. Uses the Karabiner-DriverKit-VirtualHIDDevice driver that ships with Karabiner Elements, so no separate driver install is needed.
+
+1. Grant **Input Monitoring** permission to the terminal (or to `kanata` once it's run once and prompts) in **System Settings → Privacy & Security → Input Monitoring**.
+2. Start it:
+   ```sh
+   sudo kanata -c ~/.config/kanata/kanata.kbd
+   ```
+
+Karabiner Elements stays installed but should only have rules that disable the built-in keyboard when an external one is connected — leave actual remapping to kanata.
 
 ### Google Calendar in SketchyBar
 SketchyBar shows upcoming meetings via the macOS Calendar app.
@@ -83,3 +95,5 @@ zsh --login -c "open -na $EMACSDIR/bin/emacs $@"
 - [x] Add Aerospace config
 - [x] Add Ghostty config (~/.config/ghostty/config)
 - [x] Add clean ~/.ssh/config for new machine (via 1Password)
+- [ ] Test kanata home row mods, then wire up auto-start (LaunchDaemon)
+- [ ] Add symbol layer(s) to kanata config
