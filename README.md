@@ -43,6 +43,13 @@ gcloud auth login
 gcloud config set project <your-project>
 ```
 
+### GitHub CLI
+Installed automatically via `brew bundle`. Authenticate via OAuth device flow (token stored in macOS keychain):
+```sh
+gh auth login
+```
+Pick **GitHub.com → SSH → Login with a web browser** to match the SSH-based git setup.
+
 ### Google Calendar in SketchyBar
 SketchyBar shows upcoming meetings via the macOS Calendar app.
 

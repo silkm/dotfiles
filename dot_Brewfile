@@ -2,6 +2,7 @@
 brew "chezmoi"
 brew "git"
 brew "git-delta"        # pager for git diffs
+brew "gh"               # GitHub CLI
 cask "1password"
 cask "1password-cli"
 
