@@ -8,7 +8,7 @@ config-version = 2
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-    'exec-and-forget borders active_color=0xfffab387 inactive_color=0x00000000 width=5.0'
+    'exec-and-forget borders active_color=0xff32a883 inactive_color=0x00000000 width=5.0'
 ]
 
 # Start AeroSpace at login
@@ -173,8 +173,8 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
     alt-cmd-tab = 'move-workspace-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    alt-m = 'exec-and-forget /Applications/Ghostty.app/Contents/MacOS/ghostty -e ~/.config/aerospace/switcher.sh'
-    alt-cmd-m = 'exec-and-forget /Applications/Ghostty.app/Contents/MacOS/ghostty -e ~/.config/aerospace/launcher.sh'
+    alt-m = 'exec-and-forget /Applications/Ghostty.app/Contents/MacOS/ghostty -e ~/.config/aerospace/launcher.sh'
+    alt-cmd-m = 'exec-and-forget /Applications/Ghostty.app/Contents/MacOS/ghostty -e ~/.config/aerospace/switcher.sh'
     alt-cmd-shift-ctrl-j = 'exec-and-forget osascript ~/.config/aerospace/toggle-mute.applescript'
 
 [[on-window-detected]]
