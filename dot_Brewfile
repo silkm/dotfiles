@@ -65,6 +65,7 @@ cask "slack"
 cask "gather"
 cask "vlc"
 cask "inkscape"
+cask "zotero"
 
 # --- Terminal & window management ---
 cask "karabiner-elements"

@@ -32,7 +32,17 @@ This clones the repo and automatically:
 
 ### 5. Manual steps
 - Add `~/.ssh/id_ed25519.pub` to GitHub
+- Clone the private notebook repo (needs the SSH key above on GitHub first):
+  ```sh
+  git clone git@github.com:silkm/notebook.git ~/notebook
+  ```
 - Install **Zoom** manually from [zoom.us/download](https://zoom.us/download)
+- Enable the **Zotero Connector** in Safari: **Safari → Settings → Extensions** and tick **Zotero Connector** (installed with the Zotero cask)
+- Install the **Better BibTeX** plugin in Zotero ([docs](https://retorque.re/zotero-better-bibtex/installation/)):
+  1. Download the latest `.xpi` from the [GitHub releases page](https://github.com/retorquere/zotero-better-bibtex/releases/latest) — right-click and save the file rather than opening it.
+  2. In Zotero: **Tools → Plugins**, click the gear icon, choose **Install Plugin From File…**, and select the downloaded `.xpi`.
+
+  Auto-updates after install, so this is a one-time step.
 - System Settings → Keyboard → Keyboard Shortcuts → App Shortcuts → `+` → choose Safari, menu title `Move Tab to New Window`, press meh+F.
 
 ## Post install extras
