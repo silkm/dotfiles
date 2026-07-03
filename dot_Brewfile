@@ -51,7 +51,7 @@ brew "graphviz"
 brew "glow"
 brew "git-secrets"
 
-cask "google-cloud-sdk"
+cask "gcloud-cli"
 
 # --- Python ---
 brew "uv"
@@ -71,7 +71,8 @@ cask "zotero"
 cask "karabiner-elements"
 brew "kanata"
 cask "ghostty"
-cask "aerospace"
+tap "nikitabobko/tap"
+cask "nikitabobko/tap/aerospace"
 tap "FelixKratz/formulae"
 brew "sketchybar"
 brew "borders"

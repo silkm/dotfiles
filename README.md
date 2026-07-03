@@ -9,16 +9,27 @@ Managed with [chezmoi](https://chezmoi.io). Secrets via 1Password CLI.
 xcode-select --install
 ```
 
-### 2. Homebrew, chezmoi, and 1Password CLI
+### 2. Homebrew
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install chezmoi && brew install --cask 1password-cli
+```
+Follow the **Next steps** the installer prints to add Homebrew's `PATH` lines to `~/.zprofile`, then reload it:
+```sh
+source ~/.zprofile
 ```
 
-### 3. Install 1Password 8 and enable CLI integration
-Install 1Password 8, then: **Settings → Developer → Connect with 1Password CLI**
+### 3. chezmoi
+```sh
+brew install chezmoi
+```
 
-### 4. Apply dotfiles
+### 4. Install 1Password and enable CLI integration
+```sh
+brew install --cask 1password 1password-cli
+```
+Open 1Password 8, then: **Settings → Developer → Connect with 1Password CLI**
+
+### 5. Apply dotfiles
 ```sh
 chezmoi init --apply https://github.com/silkm/dotfiles.git
 ```
@@ -30,7 +41,7 @@ This clones the repo and automatically:
 - Starts SketchyBar
 - Writes `~/.doom.d/secrets.el` from 1Password
 
-### 5. Manual steps
+### 6. Manual steps
 - Add `~/.ssh/id_ed25519.pub` to GitHub
 - Clone the private notebook repo (needs the SSH key above on GitHub first):
   ```sh
