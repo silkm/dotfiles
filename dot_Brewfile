@@ -3,7 +3,6 @@ brew "chezmoi"
 brew "git"
 brew "git-delta"
 brew "gh"
-cask "1password"
 cask "1password-cli"
 
 # --- Shell ---
@@ -60,6 +59,7 @@ brew "uv"
 brew "r"
 
 # --- Apps ---
+cask "google-chrome"
 cask "spotify"
 cask "slack"
 cask "gather"
@@ -81,3 +81,4 @@ brew "borders"
 cask "font-meslo-lg-nerd-font"
 cask "font-inconsolata"
 cask "font-inconsolata-nerd-font"
+cask "font-symbols-only-nerd-font"  # "Symbols Nerd Font Mono" for doom's nerd-icons
