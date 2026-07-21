@@ -1,10 +1,20 @@
-;; Home row mods on US QWERTY.
+;; Home row mods on US QWERTY, scoped to the built-in keyboard only.
 ;; Tap = letter, hold = modifier. tap-hold-release-keys only fires the
 ;; modifier when the next key is on the opposite hand, which cuts misfires
 ;; on inline trigrams like "as", "ed", "kl" during fast typing.
+;;
+;; F5 toggles the whole built-in keyboard on/off: it switches between the
+;; `base` layer and the `off` layer (every key a no-op). F5 stays live in
+;; `off` so you can always re-enable. External keyboards are never grabbed
+;; by kanata (see macos-dev-names-include), so they are unaffected.
 
 (defcfg
   process-unmapped-keys yes
+  ;; Only grab the built-in keyboard. Verify the exact name with `kanata --list`
+  ;; and adjust if it differs on this machine.
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+  )
 )
 
 (defvar
@@ -13,7 +23,12 @@
 )
 
 (defsrc
-  caps    a    s    d    f    j    k    l    ;
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lalt lmet spc  rmet ralt left down up   rght
 )
 
 (defalias
@@ -28,8 +43,26 @@
   hrk (tap-hold-release-keys $tap-time $hold-time k rsft (q w e r t a s d f g z x c v b))
   hrl (tap-hold-release-keys $tap-time $hold-time l rmet (q w e r t a s d f g z x c v b))
   hr; (tap-hold-release-keys $tap-time $hold-time ; ralt (q w e r t a s d f g z x c v b))
+
+  ;; F5 toggle: disable the built-in keyboard / re-enable it.
+  koff (layer-switch off)
+  kon  (layer-switch base)
 )
 
 (deflayer base
-  lctl    @hra @hrs @hrd @hrf  @hrj @hrk @hrl @hr;
+  esc  _    _    _    _    @koff _   _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  lctl @hra @hrs @hrd @hrf _    _    @hrj @hrk @hrl @hr; _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _
+)
+
+(deflayer off
+  XX   XX   XX   XX   XX   @kon XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
 )
