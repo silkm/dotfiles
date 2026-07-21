@@ -49,12 +49,15 @@ This clones the repo and automatically:
   ```
 - Install **Zoom** manually from [zoom.us/download](https://zoom.us/download)
 - Enable the **Zotero Connector** in Safari: **Safari → Settings → Extensions** and tick **Zotero Connector** (installed with the Zotero cask)
+- Add **AdGuard** to Chrome from the [Chrome Web Store](https://chromewebstore.google.com/detail/adguard-adblocker/bgnkhhnnamicmpeenaelnjfhikgbkllg)
 - Install the **Better BibTeX** plugin in Zotero ([docs](https://retorque.re/zotero-better-bibtex/installation/)):
   1. Download the latest `.xpi` from the [GitHub releases page](https://github.com/retorquere/zotero-better-bibtex/releases/latest) — right-click and save the file rather than opening it.
   2. In Zotero: **Tools → Plugins**, click the gear icon, choose **Install Plugin From File…**, and select the downloaded `.xpi`.
 
   Auto-updates after install, so this is a one-time step.
-- System Settings → Keyboard → Keyboard Shortcuts → App Shortcuts → `+` → choose Safari, menu title `Move Tab to New Window`, press meh+F.
+- System Settings → Keyboard → Keyboard Shortcuts → App Shortcuts → `+` → choose Chrome, menu title `Move Tab to New Window`, press meh+J (akin to how aerospace hyper+J pops out window).
+- Enable **Chrome → View → Developer → Allow JavaScript from Apple Events**. Required for the AeroSpace toggle-mute shortcut (`~/.config/aerospace/toggle-mute.applescript`) to mute Google Meet — without it Chrome rejects the JS call and the script silently falls through to the fallback keystroke.
+- System Settings → Displays → set the built-in display to **More Space**.
 
 ## Post install extras
 
