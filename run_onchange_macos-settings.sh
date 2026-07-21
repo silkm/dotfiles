@@ -27,11 +27,13 @@ killall Finder
 
 # Appearance
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+defaults write NSGlobalDomain _HIHideMenuBar -bool true   # auto-hide the menu bar
 defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Maximize"
 defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 defaults write NSGlobalDomain AppleTemperatureUnit -string "Celsius"
+defaults write com.apple.universalaccess reduceTransparency -bool true   # solid/opaque menu bar background
 
 # Keyboard
 defaults write NSGlobalDomain KeyRepeat -int 2
