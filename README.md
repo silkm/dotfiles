@@ -65,7 +65,7 @@ This clones the repo and automatically:
 Installed automatically via `brew bundle`. After first install, authenticate:
 ```sh
 gcloud auth login
-gcloud config set project <your-project>
+gcloud auth application-default login
 ```
 
 ### GitHub CLI
