@@ -63,10 +63,8 @@ case "$selected" in
         ;;
     Ghostty)
         launch_deferred bash -c '
-            osascript -e "tell application \"Ghostty\" to activate" \
-                      -e "delay 0.2" \
-                      -e "tell application \"System Events\" to keystroke \"n\" using command down"
-            sleep 0.5
+            open -na Ghostty.app
+            sleep 0.6
             /opt/homebrew/bin/aerospace move-node-to-workspace --focus-follows-window "$1"
         ' _ "$current_workspace"
         ;;
