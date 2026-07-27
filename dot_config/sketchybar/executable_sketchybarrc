@@ -30,8 +30,8 @@ for sid in B L D C V N R T S G; do
     --subscribe "space.$sid" aerospace_workspace_change \
     --set "space.$sid" \
       icon="$sid" \
-      label.font="Inconsolata Nerd Font Mono:Regular:18.0" \
-      label.padding_right=12 \
+      label.font="Inconsolata Nerd Font Mono:Regular:13.0" \
+      label.padding_right=45 \
       background.color=0xffffffff \
       background.height=2 \
       background.corner_radius=0 \
