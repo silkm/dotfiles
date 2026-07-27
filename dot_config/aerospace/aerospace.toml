@@ -175,6 +175,10 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
     alt-j = 'layout floating tiling' # Toggle between floating and tiling layout
     alt-p = 'fullscreen'
 
+    # Name the focused workspace (shown in sketchybar); shift clears all names
+    alt-z = 'exec-and-forget ~/.config/aerospace/workspace-name.sh'
+    alt-cmd-z = 'exec-and-forget ~/.config/aerospace/workspace-name.sh clear'
+
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor

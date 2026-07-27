@@ -42,7 +42,14 @@ while IFS= read -r app; do
 done <<< "$apps"
 icons="${icons% }"
 
-[ -n "$icons" ] && label=" $icons" || label=""
+# Custom on-the-fly name for this workspace (set via aerospace workspace-name.sh)
+STORE="${XDG_CACHE_HOME:-$HOME/.cache}/aerospace-names"
+name=$(cat "$STORE/$1" 2>/dev/null)
+
+parts="$name"
+[ -n "$icons" ] && parts="${parts:+$parts }$icons"
+
+[ -n "$parts" ] && label=" $parts" || label=""
 padding_right=$((4 + count * 4))
 
 sketchybar --set "$NAME" \
