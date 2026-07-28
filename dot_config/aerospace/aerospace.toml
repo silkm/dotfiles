@@ -136,7 +136,7 @@ exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_w
 
     # Move the focused window to the next monitor
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-monitor
-    alt-cmd-i = 'move-node-to-monitor --wrap-around next'
+    alt-cmd-i = 'move-node-to-monitor --focus-follows-window --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
     alt-f = 'resize smart -50'
