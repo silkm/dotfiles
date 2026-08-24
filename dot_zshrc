@@ -67,7 +67,7 @@ alias ec="emacsclient -t --alternate-editor=''"
 # uv venv helpers
 alias vvdirenv='echo "layout uv" > .envrc && direnv allow'
 alias vvup='source ./.venv/bin/activate'
-alias vvinstall='uv pip install python-lsp-server basedpyright bump2version black debugpy pre-commit pytest ruff setuptools'
+alias vvinstall='uv pip install python-lsp-server pyright bump2version black debugpy pre-commit pytest ruff setuptools'
 
 # Powerlevel10k
 source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
