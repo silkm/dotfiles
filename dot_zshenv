@@ -1,5 +1,6 @@
-# emacs-plus forces TMPDIR=/tmp internally, so the daemon binds to /tmp/emacs<UID>/server
-# while emacsclient uses the shell's TMPDIR. Pin both to the same path.
-export EMACS_SOCKET_NAME="/tmp/emacs${UID}/server"
+# Use Emacs's default socket ($TMPDIR/emacs<UID>/server) so shells and GUI apps
+# (Finder, Dock, Emacs Client.app) all reach the same daemon. Don't start the
+# daemon via `brew services` — launchd has no TMPDIR so it would bind to /tmp
+# instead; let `emacsclient --alternate-editor=''` auto-start it here.
 export EDITOR="emacsclient -t --alternate-editor=''"
 export VISUAL="emacsclient -nw --alternate-editor=''"

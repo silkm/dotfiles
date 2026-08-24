@@ -1,6 +1,5 @@
 #!/bin/bash
 export PATH="/opt/homebrew/bin:$PATH"
-export EMACS_SOCKET_NAME="/tmp/emacs${UID}/server"
 
 current_workspace=$(aerospace list-workspaces --focused)
 
