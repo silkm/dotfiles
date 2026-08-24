@@ -10,6 +10,10 @@ macos-option-as-alt = true
 working-directory = home
 window-save-state = never
 
+# Each instance quits when its last window closes, so the multiple
+# app instances spawned by the aerospace launcher don't pile up.
+quit-after-last-window-closed = true
+
 keybind = ctrl+shift+alt+o=goto_split:up
 keybind = ctrl+shift+alt+h=goto_split:left
 keybind = ctrl+shift+alt+a=goto_split:down
